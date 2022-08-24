@@ -12,3 +12,22 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+.quantity{
+  border: none;
+  text-align: center;
+  color: $accent;
+  font-size: 22px;
+  font-weight: 600;
+  background-color: transparent;
+  position: relative;
+  top: 4px;
+}
+.minus, .plus{
+  display: inline-block;
+  height: 24px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: $accent;
+  
+}

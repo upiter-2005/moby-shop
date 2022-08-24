@@ -1,5 +1,6 @@
 import { Home } from './Pages/Home';
 import Header from './components/Header';
+import Cart from './components/Cart';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
 
         {/* <Route path="*" element={<NotFound />}></Route> */}
       </Routes>
+      <Cart />
     </div>
   );
 }

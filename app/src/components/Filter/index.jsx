@@ -37,7 +37,7 @@ const Filter = () => {
           <span id="income">50000 UAH</span>
         </div>
       </div> */}
-      <h3 className={styles.catalog__paramsTitle}>Params:</h3>
+      <h3 className={styles.catalog__paramsTitle}>Used Params:</h3>
       <div className={styles.catalog__params}>
         <span>All</span>
         <span>50000</span>
