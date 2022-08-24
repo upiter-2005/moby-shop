@@ -1,0 +1,18 @@
+$accent: rgb(102, 140, 175);
+$red: rgb(255, 7, 7);
+.catalog{
+    padding: 25px 0;
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  
+    &__items{
+        flex:1 ;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    
+  }

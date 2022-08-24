@@ -1,0 +1,45 @@
+$accent: rgb(102, 140, 175);
+$red: rgb(255, 7, 7);
+
+
+.header{
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+    &__navigation-link{
+      text-decoration: none;
+      color: $accent;
+      font-weight: 600;
+      padding: 6px 10px;
+    }
+    &__logo{
+      font-style: italic;
+      font-weight: 700;
+      font-size: 24px;
+    }
+    &__card{
+      cursor: pointer;
+    }
+  }
+  .card{
+    position: relative;
+    &__count{
+      position: absolute;
+      top: -10px;
+      right: -5px;
+      background-color: $accent;
+      color: #fff;
+      border-radius: 50%;
+      width: 24px;
+      line-height: 24px;
+      text-align: center;
+      font-size: 14px;
+    }
+    .material-symbols-outlined{
+      font-size: 36px;
+    }
+  }
