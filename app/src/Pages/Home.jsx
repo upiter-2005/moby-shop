@@ -3,6 +3,7 @@ import styles from './Home.module.scss';
 
 import Product from '../components/Product';
 import Filter from '../components/Filter';
+import Skeleton from '../components/Skeleton';
 
 import { productsUrl } from '../apiUrls/api';
 import { useEffect } from 'react';
@@ -11,8 +12,8 @@ import { fetchProducts } from '../redux/slices/productSlice';
 
 export const Home = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.product.items);
-  //const [products, setProducts] = useState([]);
+  const items = useSelector((state) => state.product.items);
+  const status = useSelector((state) => state.product.status);
 
   const getProducts = async () => {
     try {
@@ -25,15 +26,13 @@ export const Home = () => {
     getProducts();
   }, []);
 
+  const skeleton = [...new Array(9)].map((item, i) => <Skeleton key={i} />);
+  const products = items.map((obj) => <Product {...obj} key={obj.id} />);
   return (
     <>
       <section className={styles.catalog}>
         <Filter />
-        <div className={styles.catalog__items}>
-          {products?.map((obj) => (
-            <Product {...obj} key={obj.id} />
-          ))}
-        </div>
+        <div className={styles.catalog__items}>{status === 'loading' ? skeleton : products}</div>
       </section>
     </>
   );
