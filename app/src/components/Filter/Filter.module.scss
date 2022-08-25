@@ -67,6 +67,8 @@ $red: rgb(255, 7, 7);
     }
     &__item{
       margin: 8px;
+      text-transform: capitalize;
+      cursor: pointer;
     }
     &__filter{
         width: 270px;
@@ -83,4 +85,7 @@ $red: rgb(255, 7, 7);
       position: relative;
       top: -2px;
     }
+  }
+  .activeCategory{
+    color: #ff0000;
   }

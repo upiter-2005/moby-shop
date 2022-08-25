@@ -1,21 +1,27 @@
 import React from 'react';
 import styles from './Filter.module.scss';
 
-const Filter = () => {
+const Filter = ({ changeCat, activeCategory }) => {
+  const cats = ['All', 'iPhone', 'xiaomi', 'huawei', 'samsung', 'realme', 'zte'];
+
   return (
     <div className={styles.catalog__filter}>
       <div className={styles.catalog__searchBlock}>
         <input type="text" className={styles.catalog__searchField} placeholder="Search..." />
       </div>
       <ul className={styles.catalog__categories}>
-        <li className={styles.catalog__item}>All</li>
-        <li className={styles.catalog__item}>iPhone</li>
-        <li className={styles.catalog__item}>xiaomi</li>
-        <li className={styles.catalog__item}>huawei</li>
-        <li className={styles.catalog__item}>samsung</li>
-        <li className={styles.catalog__item}>realme</li>
-        <li className={styles.catalog__item}>huawei</li>
-        <li className={styles.catalog__item}>zte</li>
+        {cats.map((obj, i) => (
+          <li
+            className={
+              activeCategory === obj
+                ? `${styles.activeCategory} ${styles.catalog__item}`
+                : `${styles.catalog__item}`
+            }
+            key={i}
+            onClick={() => changeCat(obj)}>
+            {obj}
+          </li>
+        ))}
       </ul>
 
       {/* <div className="catalog__price-range">
