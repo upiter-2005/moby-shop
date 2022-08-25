@@ -4,6 +4,7 @@ import styles from './Home.module.scss';
 import Product from '../components/Product';
 import Filter from '../components/Filter';
 import Skeleton from '../components/Skeleton';
+import Sort from '../components/Sort';
 
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -40,7 +41,12 @@ export const Home = () => {
     <>
       <section className={styles.catalog}>
         <Filter changeCat={handleCat} activeCategory={activeCategory} />
-        <div className={styles.catalog__items}>{status === 'loading' ? skeleton : products}</div>
+        <div className={styles.catalog__items}>
+          <div className={styles.catalog_sort}>
+            <Sort />
+          </div>
+          {status === 'loading' ? skeleton : products}
+        </div>
       </section>
     </>
   );

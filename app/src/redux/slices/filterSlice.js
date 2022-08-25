@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   catId: 'All',
-  sort: '',
+  sort: { name: 'By name Asc', nameProp: 'name' },
   currentPage: 1,
 };
 
