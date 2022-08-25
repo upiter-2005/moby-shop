@@ -8,26 +8,14 @@ const Filter = () => {
         <input type="text" className={styles.catalog__searchField} placeholder="Search..." />
       </div>
       <ul className={styles.catalog__categories}>
-        <li className={styles.catalog__item}>
-          <button className={styles.catalog__link}>All</button>
-          <span className={styles.catalog__count}></span>
-        </li>
-        <li className={styles.catalog__item}>
-          <button className={styles.catalog__link}>iPhone</button>
-          <span className={styles.catalog__count}></span>
-        </li>
-        <li className={styles.catalog__item}>
-          <button className={styles.catalog__link}>xiaomi</button>
-          <span className={styles.catalog__count}></span>
-        </li>
-        <li className={styles.catalog__item}>
-          <button className={styles.catalog__link}>huawei</button>
-          <span className={styles.catalog__count}></span>
-        </li>
-        <li className={styles.catalog__item}>
-          <button className={styles.catalog__link}>samsung</button>
-          <span className={styles.catalog__count}></span>
-        </li>
+        <li className={styles.catalog__item}>All</li>
+        <li className={styles.catalog__item}>iPhone</li>
+        <li className={styles.catalog__item}>xiaomi</li>
+        <li className={styles.catalog__item}>huawei</li>
+        <li className={styles.catalog__item}>samsung</li>
+        <li className={styles.catalog__item}>realme</li>
+        <li className={styles.catalog__item}>huawei</li>
+        <li className={styles.catalog__item}>zte</li>
       </ul>
 
       {/* <div className="catalog__price-range">

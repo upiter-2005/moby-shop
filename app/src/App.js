@@ -1,4 +1,4 @@
-import { Home } from './Pages/Home';
+import { Home } from './pages/Home';
 import Header from './components/Header';
 import Cart from './components/Cart';
 import { Routes, Route } from 'react-router-dom';

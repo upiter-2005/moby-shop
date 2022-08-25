@@ -5,15 +5,21 @@ import Product from '../components/Product';
 import Filter from '../components/Filter';
 
 import { productsUrl } from '../apiUrls/api';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchProducts } from '../redux/slices/productSlice';
 
 export const Home = () => {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.product.items);
+  //const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
-    await fetch(productsUrl)
-      .then((data) => data.json())
-      .then((data) => setProducts(data));
+    try {
+      dispatch(fetchProducts(productsUrl));
+    } catch (error) {
+      console.log('Bad connection');
+    }
   };
   useEffect(() => {
     getProducts();
@@ -24,7 +30,7 @@ export const Home = () => {
       <section className={styles.catalog}>
         <Filter />
         <div className={styles.catalog__items}>
-          {products.map((obj) => (
+          {products?.map((obj) => (
             <Product {...obj} key={obj.id} />
           ))}
         </div>
