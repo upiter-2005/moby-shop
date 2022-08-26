@@ -1,8 +1,12 @@
 import React from 'react';
 import styles from './Cart.module.scss';
-const Cart = () => {
+import { useRef, useEffect } from 'react';
+const Cart = ({ openCart, setOpen }) => {
   return (
-    <div className={styles.cart}>
+    <div className={openCart ? `${styles.cart} ${styles.activeCart}` : `${styles.cart}`}>
+      <button className={styles.close} onClick={() => setOpen()}>
+        x
+      </button>
       <div className={styles.cart__title}>My Cart</div>
       <div className={styles.cart__list}>
         <div className={styles.cart__item} data-id="0">

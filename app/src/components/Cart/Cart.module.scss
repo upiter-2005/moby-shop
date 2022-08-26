@@ -1,6 +1,9 @@
 $accent: rgb(102, 140, 175);
 $red: rgb(255, 7, 7);
 
+.activeCart{
+  transform: translate(0, 0)!important;
+}
 .cart{
     width: 330px;
     height: 100vh;
@@ -17,6 +20,12 @@ $red: rgb(255, 7, 7);
     box-sizing: border-box;
     transition: transform .3s ease;
     z-index: 10;
+    .close{
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      cursor: pointer;
+    }
     &.show{
       transform: translate(0, 0);
     }
