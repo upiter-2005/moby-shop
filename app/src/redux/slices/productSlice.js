@@ -2,11 +2,9 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { productsUrl } from '../../apiUrls/api';
 
 export const fetchProducts = createAsyncThunk('product/fetchProductStatus', async (params) => {
-  let { cat } = params;
-  if (cat === 'All') {
-    cat = '';
-  }
-  const query = `${productsUrl}?brand=${cat}`;
+  let { cat, sortBy, orderBy } = params;
+  console.log(orderBy);
+  const query = `${productsUrl}?brand=${cat}&sortBy=${sortBy}&order=${orderBy}`;
   const data = await fetch(query)
     .then((data) => data.json())
     .then((data) => data);

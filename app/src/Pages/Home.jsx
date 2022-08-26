@@ -16,6 +16,7 @@ export const Home = () => {
   const items = useSelector((state) => state.product.items);
   const status = useSelector((state) => state.product.status);
   const activeCategory = useSelector((state) => state.filter.catId);
+  const sort = useSelector((state) => state.filter.sort);
 
   const getProducts = async () => {
     try {
@@ -28,8 +29,12 @@ export const Home = () => {
     getProducts();
   }, []);
   useEffect(() => {
-    dispatch(fetchProducts({ cat: activeCategory }));
-  }, [activeCategory]);
+    const cat = activeCategory === 'All' ? '' : activeCategory;
+    const sortBy = sort.nameProp.replace('-', '');
+    const orderBy = sort.nameProp.includes('-') ? 'desc' : 'asc';
+
+    dispatch(fetchProducts({ cat, sortBy, orderBy }));
+  }, [activeCategory, sort]);
 
   const handleCat = (obj) => {
     dispatch(setCategory(obj));
