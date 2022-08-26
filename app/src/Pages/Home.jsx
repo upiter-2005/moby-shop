@@ -8,7 +8,7 @@ import Sort from '../components/Sort';
 
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProducts } from '../redux/slices/productSlice';
+import { fetchProducts, searchProduct } from '../redux/slices/productSlice';
 import { setCategory } from '../redux/slices/filterSlice';
 
 export const Home = () => {
@@ -39,6 +39,9 @@ export const Home = () => {
   const handleCat = (obj) => {
     dispatch(setCategory(obj));
   };
+  const getSearchProduct = (value) => {
+    dispatch(searchProduct(value));
+  };
 
   const skeleton = [...new Array(9)].map((item, i) => <Skeleton key={i} />);
   const products = items.map((obj) => <Product {...obj} key={obj.id} />);
@@ -49,7 +52,11 @@ export const Home = () => {
       </div>
 
       <section className={styles.catalog}>
-        <Filter changeCat={handleCat} activeCategory={activeCategory} />
+        <Filter
+          changeCat={handleCat}
+          activeCategory={activeCategory}
+          getSearchProduct={getSearchProduct}
+        />
         <div className={styles.catalog__items}>{status === 'loading' ? skeleton : products}</div>
       </section>
     </>

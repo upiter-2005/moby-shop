@@ -10,6 +10,14 @@ export const fetchProducts = createAsyncThunk('product/fetchProductStatus', asyn
     .then((data) => data);
   return data;
 });
+
+export const searchProduct = createAsyncThunk('product/searchProduct', async (value) => {
+  const query = `${productsUrl}?search=${value}`;
+  const data = await fetch(query)
+    .then((data) => data.json())
+    .then((data) => data);
+  return data;
+});
 const initialState = {
   items: [],
   status: 'loading',
@@ -32,6 +40,16 @@ export const productSlice = createSlice({
       state.status = 'success';
     });
     builder.addCase(fetchProducts.rejected, (state) => {
+      state.status = 'error';
+    });
+    builder.addCase(searchProduct.pending, (state) => {
+      state.status = 'loading';
+    });
+    builder.addCase(searchProduct.fulfilled, (state, action) => {
+      state.items = action.payload;
+      state.status = 'success';
+    });
+    builder.addCase(searchProduct.rejected, (state) => {
       state.status = 'error';
     });
   },
