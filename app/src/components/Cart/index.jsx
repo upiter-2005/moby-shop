@@ -18,11 +18,11 @@ const Cart = ({ openCart, setOpen }) => {
               remove
             </button>
           </div>
-          <div className={styles.inputNumber}>
+          {/* <div className={styles.inputNumber}>
             <button className="minus material-symbols-outlined">expand_more</button>
             <input className="quantity" min="0" name="quantity" value="1" type="number" />
             <button className="plus material-symbols-outlined">expand_less</button>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className={styles.cart__total}>
