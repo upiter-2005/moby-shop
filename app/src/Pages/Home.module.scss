@@ -15,7 +15,9 @@ $red: rgb(255, 7, 7);
         justify-content: flex-start;
     }
     &_sort{
-        width: 100%;
+        max-width: 1140px;
+         width: 100%;
+         margin: 0 auto;
         text-align: right;
     }
   }

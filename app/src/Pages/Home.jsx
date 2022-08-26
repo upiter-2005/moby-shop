@@ -39,14 +39,13 @@ export const Home = () => {
   const products = items.map((obj) => <Product {...obj} key={obj.id} />);
   return (
     <>
+      <div className={styles.catalog_sort}>
+        <Sort />
+      </div>
+
       <section className={styles.catalog}>
         <Filter changeCat={handleCat} activeCategory={activeCategory} />
-        <div className={styles.catalog__items}>
-          <div className={styles.catalog_sort}>
-            <Sort />
-          </div>
-          {status === 'loading' ? skeleton : products}
-        </div>
+        <div className={styles.catalog__items}>{status === 'loading' ? skeleton : products}</div>
       </section>
     </>
   );
