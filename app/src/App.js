@@ -1,4 +1,5 @@
 import { Home } from './pages/Home';
+import { Cart } from './pages/Cart';
 import Header from './components/Header';
 import { Routes, Route } from 'react-router-dom';
 
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         {/* <Route path="/" element={<Home searchVal={searchVal} />}></Route> */}
         <Route path="/" element={<Home />}></Route>
+        <Route path="/cart" element={<Cart />}></Route>
         {/* <Route path="/posts" element={<PostsList />}></Route>
           <Route path="/posts/:id" element={<PostEdit />}></Route> */}
 

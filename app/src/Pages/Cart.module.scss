@@ -1,0 +1,15 @@
+$accent: rgb(102, 140, 175);
+.cart__container{
+    max-width: 840px;
+    width: 100%;
+    margin: 30px auto;
+    box-shadow: 5px 3px 14px -4px rgb(0 0 0 / 91%);
+  .cart__total{
+    font-weight: 700;
+    margin: 8px;
+    padding: 12px;
+    font-size: 24px;
+    color: $accent;
+  }
+  
+}

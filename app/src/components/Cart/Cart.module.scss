@@ -74,6 +74,8 @@ $red: rgb(255, 7, 7);
     }
     .checkout{
       border-radius: 6px;
+      text-align: center;
+      text-decoration: none;
       border: none;
       background-color: $accent;
       color: #fff;
@@ -95,4 +97,23 @@ $red: rgb(255, 7, 7);
       
     }
    
+  }  
+  .card{
+    position: relative;
+    cursor: pointer;
+    &__count{
+      position: absolute;
+      top: -10px;
+      right: -5px;
+      background-color: $accent;
+      color: #fff;
+      border-radius: 50%;
+      width: 24px;
+      line-height: 24px;
+      text-align: center;
+      font-size: 14px;
+    }
+    .material-symbols-outlined{
+      font-size: 36px;
+    }
   }

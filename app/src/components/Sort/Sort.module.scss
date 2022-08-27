@@ -3,6 +3,7 @@ $accent: rgb(102, 140, 175);
     position: relative;
     font-weight: 600;
     cursor: pointer;
+    display: inline-block;
     &__list{    
         position: absolute;
         right: 0;   

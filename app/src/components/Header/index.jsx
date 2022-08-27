@@ -1,14 +1,9 @@
 import React from 'react';
 import styles from './Header.module.scss';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Cart from '../Cart';
-const Header = () => {
-  const [openCart, setOpenCart] = useState(false);
-  const setOpen = () => {
-    setOpenCart(!openCart);
-  };
 
+const Header = () => {
   return (
     <>
       <header className={styles.header}>
@@ -16,9 +11,9 @@ const Header = () => {
           <Link to="/" className={styles.header__navigationLink}>
             Home
           </Link>
-          <Link to="/about" className={styles.header__navigationLink}>
+          {/* <Link to="/about" className={styles.header__navigationLink}>
             About
-          </Link>
+          </Link> */}
           <Link to="/cart" className={styles.header__navigationLink}>
             Cart
           </Link>
@@ -26,16 +21,8 @@ const Header = () => {
 
         <div className={styles.header__logo}>Smartfone store</div>
 
-        <div
-          className={styles.card}
-          onClick={() => {
-            setOpenCart(!openCart);
-          }}>
-          <span className="material-symbols-outlined"> shopping_cart </span>
-          <span className={styles.card__count}>0</span>
-        </div>
+        <Cart />
       </header>
-      <Cart openCart={openCart} setOpen={setOpen} />
     </>
   );
 };
