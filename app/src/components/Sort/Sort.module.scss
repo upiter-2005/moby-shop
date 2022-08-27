@@ -1,9 +1,14 @@
 $accent: rgb(102, 140, 175);
 .sort{
+    border: 2px solid $accent;
+    padding: 4px 10px;
+    border-radius: 10px;
+    margin-top: 20px;
     position: relative;
     font-weight: 600;
     cursor: pointer;
     display: inline-block;
+   
     &__list{    
         position: absolute;
         right: 0;   

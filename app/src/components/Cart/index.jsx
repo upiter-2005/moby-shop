@@ -3,8 +3,11 @@ import styles from './Cart.module.scss';
 import { useRef, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import MiniCartItem from '../MiniCartItem';
 const Cart = () => {
+  const items = useSelector((state) => state.cart.items);
   const count = useSelector((state) => state.cart.count);
+  const total = useSelector((state) => state.cart.total);
   const cartEl = useRef();
   const closeEl = useRef();
   const [active, setActive] = useState(false);
@@ -35,18 +38,12 @@ const Cart = () => {
           </button>
           <div className={styles.cart__title}>My Cart</div>
           <div className={styles.cart__list}>
-            <div className={styles.cart__item} data-id="0">
-              <img src="/images/products/galaxy-a32.jpeg" className={styles.cart__itemImage} />
-              <div className={styles.cart__itemData}>
-                <h4 className={styles.cart__itemTitle}>
-                  Samsung Galaxy S22 Ultra 12/256 GB Phantom
-                </h4>
-                <div className={styles.cart__itemPrice}>12000 UAH</div>
-              </div>
-            </div>
+            {items.map((obj) => (
+              <MiniCartItem {...obj} key={obj.id} />
+            ))}
           </div>
           <div className={styles.cart__total}>
-            Total: <span id="total">45 876 </span> UAH
+            Total: <span id="total">{total} </span> UAH
           </div>
           <Link to="/cart" className={styles.checkout}>
             To cart page

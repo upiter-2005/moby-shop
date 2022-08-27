@@ -2,7 +2,7 @@ $accent: rgb(102, 140, 175);
 $red: rgb(255, 7, 7);
 .catalog{
     padding: 25px 0;
-    max-width: 1140px;
+    max-width: 1100px;
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -12,7 +12,7 @@ $red: rgb(255, 7, 7);
         flex:1 ;
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: space-between;
     }
     &_sort{
         max-width: 1140px;

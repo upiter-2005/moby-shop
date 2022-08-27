@@ -20,7 +20,7 @@ export const Home = () => {
 
   const getProducts = async () => {
     try {
-      dispatch(fetchProducts({ cat: activeCategory }));
+      dispatch(fetchProducts());
     } catch (error) {
       console.log('Bad connection');
     }
