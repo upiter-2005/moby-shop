@@ -1,15 +1,14 @@
-import React from 'react';
-import styles from './Home.module.scss';
+import React, { useEffect } from 'react';
 
+import { useSelector, useDispatch } from 'react-redux';
 import Product from '../components/Product';
 import Filter from '../components/Filter';
 import Skeleton from '../components/Skeleton';
 import Sort from '../components/Sort';
-
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts, searchProduct } from '../redux/slices/productSlice';
 import { setCategory } from '../redux/slices/filterSlice';
+
+import styles from './Home.module.scss';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -25,9 +24,15 @@ export const Home = () => {
       console.log('Bad connection');
     }
   };
+
+  const getPr = () => {
+    console.log('sdfdsf');
+  };
+
   useEffect(() => {
     getProducts();
   }, []);
+
   useEffect(() => {
     const cat = activeCategory === 'All' ? '' : activeCategory;
     const sortBy = sort.nameProp.replace('-', '');
@@ -39,6 +44,7 @@ export const Home = () => {
   const handleCat = (obj) => {
     dispatch(setCategory(obj));
   };
+
   const getSearchProduct = (value) => {
     dispatch(searchProduct(value));
   };

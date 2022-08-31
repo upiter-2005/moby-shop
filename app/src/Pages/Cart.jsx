@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './Cart.module.scss';
-import CartItem from '../components/CartItem';
-import { useDispatch, useSelector } from 'react-redux';
 
-export const Cart = () => {
+import CartItem from '../components/CartItem';
+import styles from './Cart.module.scss';
+import { useDispatch, useSelector } from 'react-redux';
+export function Cart() {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
   const totalPrice = useSelector((state) => state.cart.total);
@@ -17,7 +17,7 @@ export const Cart = () => {
       {console.log(items.length < 1)}
       {existProduct.length !== 0 ? existProduct : noProducts}
 
-      <div className={styles.cart__total}>Total price : {totalPrice}</div>
+      <div className={styles.cart__total}>Total price :{totalPrice}</div>
     </div>
   );
-};
+}
