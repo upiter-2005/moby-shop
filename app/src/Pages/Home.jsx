@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import Product from "../components/Product";
+import Filter from "../components/Filter";
+import Skeleton from "../components/Skeleton";
+import Sort from "../components/Sort";
+import { fetchProducts, searchProduct } from "../redux/slices/productSlice";
+import { setCategory } from "../redux/slices/filterSlice";
 
-import { useSelector, useDispatch } from 'react-redux';
-import Product from '../components/Product';
-import Filter from '../components/Filter';
-import Skeleton from '../components/Skeleton';
-import Sort from '../components/Sort';
-import { fetchProducts, searchProduct } from '../redux/slices/productSlice';
-import { setCategory } from '../redux/slices/filterSlice';
-
-import styles from './Home.module.scss';
+import styles from "./Home.module.scss";
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -20,13 +19,7 @@ export const Home = () => {
   const getProducts = async () => {
     try {
       dispatch(fetchProducts());
-    } catch (error) {
-      console.log('Bad connection');
-    }
-  };
-
-  const getPr = () => {
-    console.log('sdfdsf');
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -34,9 +27,9 @@ export const Home = () => {
   }, []);
 
   useEffect(() => {
-    const cat = activeCategory === 'All' ? '' : activeCategory;
-    const sortBy = sort.nameProp.replace('-', '');
-    const orderBy = sort.nameProp.includes('-') ? 'desc' : 'asc';
+    const cat = activeCategory === "All" ? "" : activeCategory;
+    const sortBy = sort.nameProp.replace("-", "");
+    const orderBy = sort.nameProp.includes("-") ? "desc" : "asc";
 
     dispatch(fetchProducts({ cat, sortBy, orderBy }));
   }, [activeCategory, sort]);
@@ -44,13 +37,13 @@ export const Home = () => {
   const handleCat = (obj) => {
     dispatch(setCategory(obj));
   };
-
   const getSearchProduct = (value) => {
     dispatch(searchProduct(value));
   };
 
   const skeleton = [...new Array(9)].map((item, i) => <Skeleton key={i} />);
   const products = items.map((obj) => <Product {...obj} key={obj.id} />);
+
   return (
     <>
       <div className={styles.catalog_sort}>
@@ -63,7 +56,9 @@ export const Home = () => {
           activeCategory={activeCategory}
           getSearchProduct={getSearchProduct}
         />
-        <div className={styles.catalog__items}>{status === 'loading' ? skeleton : products}</div>
+        <div className={styles.catalog__items}>
+          {status === "loading" ? skeleton : products}
+        </div>
       </section>
     </>
   );

@@ -1,13 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  catId: 'All',
-  sort: { name: 'By name Asc', nameProp: 'name' },
+  catId: "All",
+  sort: { name: "By name Asc", nameProp: "name" },
   currentPage: 1,
 };
 
 export const filterSlice = createSlice({
-  name: 'filter',
+  name: "filter",
   initialState,
   reducers: {
     setCategory: (state, action) => {

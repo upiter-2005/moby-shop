@@ -1,11 +1,9 @@
-import React from 'react';
-import styles from './Product.module.scss';
-import { useSelector, useDispatch } from 'react-redux';
-import { addCart } from '../../redux/slices/cartSlice';
+import { useDispatch } from "react-redux";
+import styles from "./Product.module.scss";
+import { addCart } from "../../redux/slices/cartSlice";
 
-const Product = ({ id, name, price, img, brand }) => {
+const Product = ({ id, name, price, img }) => {
   const dispatch = useDispatch();
-  // const items = useSelector((state) => state.product.items);
 
   const clickAdd = () => {
     dispatch(
@@ -14,9 +12,10 @@ const Product = ({ id, name, price, img, brand }) => {
         name,
         price,
         img,
-      }),
+      })
     );
   };
+
   return (
     <div className={styles.product}>
       <div className={styles.product__imageBlock}>
@@ -24,7 +23,11 @@ const Product = ({ id, name, price, img, brand }) => {
       </div>
       <div className={styles.product__title}>{name}</div>
       <div className={styles.product__price}>{price} UAH</div>
-      <button className={styles.product__addToCart} onClick={clickAdd}>
+      <button
+        type="button"
+        className={styles.product__addToCart}
+        onClick={clickAdd}
+      >
         <span className="material-symbols-outlined"> shopping_cart </span>
       </button>
     </div>
