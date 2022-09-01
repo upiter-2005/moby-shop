@@ -1,7 +1,7 @@
-import React from 'react';
-import styles from './MiniCartItem.module.scss';
-import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart } from '../../redux/slices/cartSlice';
+import { useDispatch } from "react-redux";
+import styles from "./MiniCartItem.module.scss";
+import { removeFromCart } from "../../redux/slices/cartSlice";
+
 const MiniCartItem = ({ id, name, price, img, count }) => {
   const dispatch = useDispatch();
 
@@ -11,11 +11,15 @@ const MiniCartItem = ({ id, name, price, img, count }) => {
       <div className={styles.cart__itemData}>
         <h4 className={styles.cart__itemTitle}>{name}</h4>
         <div className={styles.cart__itemPrice}>
-          {price} UAH x {count}{' '}
+          {price} UAH x {count}{" "}
         </div>
       </div>
 
-      <button className={styles.cart__remove} onClick={() => dispatch(removeFromCart(id))}>
+      <button
+        type="button"
+        className={styles.cart__remove}
+        onClick={() => dispatch(removeFromCart(id))}
+      >
         x
       </button>
     </div>

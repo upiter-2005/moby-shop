@@ -44,7 +44,7 @@ const Sort = () => {
           {sortTypes.map((obj, i) => (
             <li
               key={i}
-              className={obj.name == sort.name ? `${styles.activeSort}` : ""}
+              className={obj.name === sort.name ? `${styles.activeSort}` : ""}
               onClick={() => changeSort({ ...obj })}
             >
               {obj.name}

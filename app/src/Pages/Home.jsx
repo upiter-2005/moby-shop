@@ -19,7 +19,9 @@ export const Home = () => {
   const getProducts = async () => {
     try {
       dispatch(fetchProducts());
-    } catch (error) {}
+    } catch (error) {
+      console.log("bad connection");
+    }
   };
 
   useEffect(() => {

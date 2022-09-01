@@ -6,6 +6,7 @@ import {
   plusCart,
   minusCart,
 } from "../../redux/slices/cartSlice";
+
 const CartItem = ({ id, name, price, img, count }) => {
   const dispatch = useDispatch();
   const minusHandler = () => {
