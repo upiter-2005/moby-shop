@@ -59,6 +59,7 @@ export const Home = () => {
           getSearchProduct={getSearchProduct}
         />
         <div className={styles.catalog__items}>
+          <h1 className={styles.catalog_header}>{activeCategory}</h1>
           {status === "loading" ? skeleton : products}
         </div>
       </section>
